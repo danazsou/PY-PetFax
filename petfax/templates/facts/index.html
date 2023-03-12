@@ -1,15 +1,23 @@
 {% extends "index-base.html" %}
-{% block title%} Facts {%endblock%}
+{% block title%} New Facts {%endblock%}
 
 {% block body %}
     <div class="container">
         <h1>Pet Facts</h1>
         <div class="callout">
-            These facts about pets were added by users
+            These facts about pets were added by users below
         </div>
         <div class="facts-container">
-            List of facts
+            {% for fact in facts %}
+                <h4>Submitted by {{fact.submitter}}</h4>
+                <p class="fact">
+                    {{fact.fact}}
+                </p>
+        {%endfor%}
+    </div>
+    <div class="facts container">
+        <div class="links bottom-left">
+            <a href="/pets">&lt;&lt; Go Back!</a>
         </div>
-        <a href = "/pets">&lt;&lt; Go Back</a>
     </div>
 {% endblock %}

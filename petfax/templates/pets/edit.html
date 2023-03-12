@@ -1,0 +1,36 @@
+{% extends "index-base.html" %}
+{% block title%} New Pets {%endblock%}
+
+{% block body %}
+   <div class="container">
+    <h1>Edit{{pet.pet_name}}</h1>
+    <div class="callout">
+        Make some changes
+    </div>
+    <div class ="facts-container">
+        <form action="/pets/edit/{{pet.pet_id}}" method="POST">
+            <label for="petName">
+                <h2>Pet Name</h2>
+            </label>
+            <input type="text" value="{{pet.pet_name}}" name="petName">
+            <br/>
+            <label for="petPhoto">
+                <h2>Pet Photo</h2>
+            </label>
+            <input type="text" value="{{pet.pet_photo}}" name="petPhoto">
+            <br/>
+            <label for="petFact">
+                <h2>Pet Fact</h2>
+            </label>
+            <textarea value="{{pet.pet_fact}}" name="petFact"></textarea>
+            <br/>
+            <input type="submit" value="Add Your Pet">
+        </form>
+    </div>
+    <div class="facts-container">
+        <div class="links bottome-left">
+            <a href="/pets">&lt;&lt; Go Back</a>
+        </div>
+      </div>
+   </div> 
+   {% endblock %}
